@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    stream:
+      rocketmq:
+        binder:
+          name-server: mbp2011:9876
+      bindings:
+        cloudStream-out-0:
+          destination: cloud-stream
