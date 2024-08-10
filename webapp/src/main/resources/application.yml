@@ -5,5 +5,19 @@ spring:
         binder:
           name-server: mbp2011:9876
       bindings:
-        cloudStream-out-0:
+        cloudStreamP-out-0:
           destination: cloud-stream
+        cloudStreamC-in-0:
+          destination: cloud-stream
+          group: cs
+        mqFunction-in-0:
+          destination: cloud-stream
+          group: mf
+        mqFunction-out-0:
+          destination: cloud-stream-func
+        cloudStreamCF-in-0:
+          destination: cloud-stream-func
+      poller:
+        fixedDelay: 30000
+    function:
+      definition: cloudStreamC; cloudStreamP; mqFunction; cloudStreamCF
