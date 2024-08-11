@@ -17,6 +17,11 @@ public class MqConsumerConf {
     public Consumer<Message<String>> cloudStreamC() {
         return message -> {
             logger.info("### received {} , {}", message, message.getPayload());
+            Long l = System.currentTimeMillis();
+            if (Math.abs(l.intValue()) % 2 == 0) {
+                logger.info("### oops");
+                throw new RuntimeException("oops");
+            }
         };
     }
 
