@@ -10,6 +10,8 @@ spring:
         cloudStreamC-in-0:
           destination: cloud-stream
           group: cs
+          consumer:
+            concurrency: 4
         mqFunction-in-0:
           destination: cloud-stream
           group: mf
@@ -17,6 +19,8 @@ spring:
           destination: cloud-stream-func
         cloudStreamCF-in-0:
           destination: cloud-stream-func
+          consumer:
+            concurrency: 4
       poller:
         fixedDelay: 30000
     function:
